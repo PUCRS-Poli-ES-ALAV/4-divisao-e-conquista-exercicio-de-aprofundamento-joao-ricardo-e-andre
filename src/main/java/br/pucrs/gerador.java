@@ -3,7 +3,7 @@ package br.pucrs;
 import java.util.Random;
 
 public class gerador {
-    private static int[] geraVetor(int nroPares, int nroImpares){
+    public static int[] geraVetor(int nroPares, int nroImpares){
         int [] res = null;
         int contPar = 0, contImpar = 0, novoNum;
         Random rnd = new Random();

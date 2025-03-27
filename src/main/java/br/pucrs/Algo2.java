@@ -1,19 +1,26 @@
 package br.pucrs;
 
 public class Algo2 {
+    private long iterations;
 
-    public long maxVal(int []a, int n, int x) {
-        x++;
-        if (n == 0)
-        {
-           System.out.println(x);
-            return a[n];
-        }
+    public long maxVal(int[] a, int n) {
+        iterations = 0;
+        long startTime = System.nanoTime();
+        long result = maxValHelper(a, n);
+        long endTime = System.nanoTime();
+        long duration = endTime - startTime;
 
-        return Math.max(a[n-1], maxVal(a,n-1, x));
+        System.out.println("Iteracoes: " + iterations);
+        System.out.println("Tempo (ns): " + duration);
+
+        return result;
     }
 
-
-
-
+    private long maxValHelper(int[] a, int n) {
+        iterations++;
+        if (n == 0) {
+            return a[n];
+        }
+        return Math.max(a[n - 1], maxValHelper(a, n - 1));
+    }
 }
